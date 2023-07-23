@@ -1,0 +1,393 @@
+/*
+calc(100% / 3)
+css variables
+css flesbox
+for parent 
+    display:flex
+    flex-direction : row, row-reverse, column, column-reverse لو غيرت الاتجاه بتاع الموقع كان الفلوت مش هيغير انما الفلكس هيغير اتجاهم
+    flex-wrap: wrap; هتعمل ايه مع العنصر الزيادة
+        ==>wrap اي عنصر زيادة هيزل تحت
+        ==>wrap-reverse هيخلي العنصر الاخير فوق 
+    justify-content :  علي محور x
+        ==>flex-start 
+        ==>flex-end  
+        ==>center 
+        ==>space-between  مسافات بين العناصر
+    align-items => علي محور y 
+        ==>stretch كل لما الطول يزيد لعنصر هيزيد للكل طالما العناصر ملهاش طول معين
+        ==>flex-start هنحتفظ بالطول للعنصر المحدد بس وبداية العنصر هتبقي من فوق
+        ==>flex-end هنحتفظ بالطول للعنصر المحدد بس وبداية العنصر هتبقي من تحت
+        ==>center
+for childerens
+*/
+:root {
+    --mainColor : #8f0a0f;
+    --hoverColor : #a0262a;
+    --secondColor : rgb(94, 93, 93);
+    --mainPadding : 100px 0 10px;
+    --secondFontFamily:'Playfair Display';
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+*{
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+}
+a{
+    text-decoration: none;
+    color: var(--mainColor);
+}
+a:hover{
+    color: var(--hoverColor);
+}
+.ShopNow{
+    font-weight: 400;
+    color: #222;
+    padding: 15px 30px ;
+    border: 0.1rem solid var(--mainColor);
+}
+.ShopNow:hover{
+    background-color: var(--mainColor);
+    color: #fff;
+    transition: 0.5s ease-in-out;
+}
+.row{display: flex;flex-wrap: wrap;}
+.col-3{width: calc(100% / 4);}
+.col-9{width: calc(100% / (12/9));}
+.col-4{width: calc(100% / 3);}
+.col-8{width: calc(100% / 1.5);}
+.col-5{width: calc(100% / 2.4);}
+.col-7{width: calc(100% / (12/7));}
+.col-6{width: calc(100% / 2);}
+/*start aside*/
+aside{
+    width: 25%;
+    float: left;
+    position: fixed;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    padding: 90px 30px 0;
+    box-sizing: border-box;
+}
+aside .logo img{
+    width: 70%;
+}
+aside ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+aside ul{margin: 45px 0;}
+aside #links li{
+    padding: 20px 0;
+    font-size: 21px;
+}
+aside #links li:first-of-type {padding-top: 0;}
+aside #links li:last-of-type {padding-bottom: 0;}
+aside #links li a {color: var(--secondColor);}
+aside #links li:hover a {
+    color: var(--mainColor);
+    transition: 0.5s ease-in-out;
+}
+aside #links .active a {color: var(--mainColor);}
+aside #social li {
+    padding: 20px 25px;
+    background-color: var(--mainColor);
+    display: inline-block;
+}
+aside #social li a{
+    color: #fff;
+}
+/*end aside*/
+/*start main */
+main{
+    width: 75%;
+    float: right;
+    padding-top: 61px;
+    box-sizing: border-box;
+}
+/*start home */
+#Home {
+    background-image: url('../images/slide-2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#Home .main{
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 30px 120px;
+    font-size: 25px;
+    text-align: center;
+}
+#Home h1 {
+    font-size: 70px;
+    margin: 25px 0;
+    text-transform: uppercase;
+    font-family: var(--secondFontFamily);
+}
+/*end home */
+/*start quotes */
+#quotes{
+    padding: var(--mainPadding);
+}
+#quotes .row {
+    align-items :center;
+}
+#quotes .col-3{text-align: center;}
+#quotes .col-3 h4 {margin-bottom: 3px}
+#quotes .col-3 p {color: var(--secondColor);}
+#quotes .col-9{text-align: left;} 
+#quotes i {
+    color: var(--secondColor);
+    font-size: 25px;
+}
+/*end quotes */
+/*start New Products */
+#NewProducts {padding: var(--mainPadding);}
+#NewProducts .col-5{
+    background-image: url('../images/products/1.jpg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+#NewProducts .col-5 h2{
+    font-family:  var(--secondFontFamily);
+    font-size: 40px;
+}
+#NewProducts .col-7{
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+#NewProducts .col-6,#Offers .col-4{
+    padding: 0 10px 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+#NewProducts .col-6 img,#Offers .col-4 img{
+    width: 100%;
+}
+#NewProducts .col-6 h4,#Offers .col-4 h4{
+    font-weight: bold;
+    font-family: var(--secondFontFamily);
+    font-size: 30px;
+    margin: 5px 0;
+}
+#NewProducts .col-6 p,#Offers .col-4 p{
+    margin: 5px 0 30px 0;
+    color: var(--mainColor);
+    font-weight: bold;
+}
+#NewProducts .col-6 p del,#Offers .col-4 p del{
+    color: var(--secondColor);
+    font-weight: 100;
+}
+/*end New Products */
+/*start ads */
+#adds{
+    margin: var(--mainPadding);
+    background-image: url('../images/banner-3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 55vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#adds h3{
+    font-size: 40px;
+    font-family: var(--secondFontFamily);
+    margin: 10px 0;
+}
+#adds a{
+    color: #fff;
+    font-weight: bold;
+}
+/*end ads */
+/*start Offers */
+#Offers{
+    margin: var(--mainPadding);
+    margin-left: 0;
+}
+#Offers h2{
+    text-align: center;
+    font-size: 3.6rem;
+    font-weight: 700;
+    font-family: var(--secondFontFamily);
+    letter-spacing: .01em;
+    color: #222;
+    text-transform: uppercase;
+}
+/*end Offers */
+/*end New Products */
+/*start contact*/
+#contact {margin: var(--mainPadding);}
+#contact .contact-body {
+    background-color: rgb(245 245 245);
+    padding: 40px 30px;
+    box-sizing: border-box;
+}
+#contact h2{
+    text-align: center;
+    font-size: 3.6rem;
+    font-weight: 700;
+    font-family: var(--secondFontFamily);
+    letter-spacing: .01em;
+    color: #222;
+    text-transform: uppercase;
+}
+#contact .col-6 input, #contact .col-6 textarea{
+    width: 100%;
+    padding: 6px;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin-bottom: 15px;
+    font-size: 17px;
+    box-sizing: border-box;
+}
+#contact .col-6 input
+{
+    height: 45px;
+}
+.mainButton {
+    display: block;
+    width: 43%;
+    margin: 10px 0;
+    border: none;
+    color: #fff;
+    padding: 20px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: auto;
+    background: linear-gradient(141deg, var(--hoverColor) ,  var(--mainColor) );
+}
+/*end contact*/
+/*end Brands*/
+#Brands{
+    margin: var(--mainPadding);
+    text-align: center;
+    padding: 0 200px;
+}
+#Brands p {
+    color: var(--secondColor);
+}
+#Brands h2{
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: var(--secondFontFamily);
+    letter-spacing: .01em;
+    color: #222;
+    text-transform: uppercase;
+    width: 70%;
+    margin: 10px auto 60px;
+}
+/*end Brands*/
+/*start footer*/
+footer{
+    margin-top: 40px;
+    padding: 80px;
+    background-color: #590608;
+    color: #fff;
+}
+footer .col-4{
+    padding: 20px;
+    box-sizing: border-box;
+}
+footer ul{
+    padding: 0;
+    list-style: circle;
+}
+footer ul li{margin: 7px 0;}
+footer ul li a{
+    color: #ccc;
+    font-size: 21px;
+    font-weight: bold;
+}
+footer .payment {margin-top: 33px;}
+/*end Brands*/
+/*end main */
+/*start header */
+header{
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 6px rgb(51 51 51 / 10%);
+}
+header #mainUl {
+    display:flex;
+    list-style: none;
+}
+header #mainUl{
+    padding: 2px 15px;
+    color: #8f0a0f;
+}
+header ul {
+    padding: 0;
+    margin: 0;
+}
+header ul #search {
+    width: 25%;
+    position: relative;
+}
+header ul #search input{
+    width: 75%;
+    height: 28px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid var(--mainColor);
+    padding-left: 32px;
+}
+header ul #search i {
+    position: absolute;
+    top: 8px;
+}
+header ul #slogan {
+    width: 50%;
+    text-align: center;
+    color: var(--secondColor);
+}
+header ul #slogan h3{margin: 0;}
+header ul #links {
+    width: 25%;
+    text-align: right;
+}
+header ul #links ul li {
+    display: inline-block;
+    color: #8f0a0f;
+    cursor: pointer;
+    padding: 2px 15px;
+    font-size: 20px;
+}
+/*end header */
+#BackToTop{
+    background-color: var(--mainColor);
+    color: #fff;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
